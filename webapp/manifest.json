@@ -38,7 +38,11 @@
   	  "minUI5Version": "1.60",
   	  "libs": {
   		"sap.m": {}
-  	  }
+  	  },
+      "contentDensities": {
+        "compact": true,
+        "cozy": true
+      }
   	},
   	"models": {
   	  "i18n": {

@@ -3,8 +3,9 @@ sap.ui.define([
    'sap/m/MessageToast',
    "sap/ui/model/json/JSONModel",
    "sap/ui/model/resource/ResourceModel",
-   "./controller/HelloDialog"
-], function (UIComponent, MessageToast, JSONModel, ResourceModel, HelloDialog) {
+   "./controller/HelloDialog",
+   "sap/ui/Device"
+], function (UIComponent, MessageToast, JSONModel, ResourceModel, HelloDialog, Device) {
    "use strict";
    return UIComponent.extend("walkthrough.Component", {
 
@@ -25,6 +26,11 @@ sap.ui.define([
          var oModel = new JSONModel(oData);
          this.setModel(oModel);
 
+         //set Device model
+         var oDeviceModel = new JSONModel(Device);
+         oDeviceModel.setDefaultBindingMode("OneWay");
+         this.setModel(oDeviceModel, "deviceModel");
+
          //set Dialog
          this._helloDialog = new HelloDialog(this.getRootControl());
   			 // create the views based on the url/hash
@@ -35,6 +41,17 @@ sap.ui.define([
          //   bundleName: "walkthrough.i18n.i18n"
          // });
          // this.setModel(i18nModel,'i18n');
+      },
+
+      getContentDensityClass: function (){
+  			if (!this._sContentDensityClass) {
+  				if (!Device.support.touch) {
+  					this._sContentDensityClass = "sapUiSizeCompact";
+  				} else {
+  					this._sContentDensityClass = "sapUiSizeCozy";
+  				}
+  			}
+  			return this._sContentDensityClass;
       },
 
       exit: function(){

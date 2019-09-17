@@ -5,7 +5,10 @@
   <Panel
     class="sapUiResponsoveMargin"
     width="auto"
-    headerText="{i18n>helloPanelTitle}">
+    headerText="{i18n>helloPanelTitle}"
+		expandable="{device>/system/phone}"
+		expanded="{= !${device>/system/phone} }"
+		accessibleRole="Region">	
     <content>
 
       <!-- Step-16 -->
@@ -14,7 +17,7 @@
         text="{i18n>openDialogButtonText}"
         icon="sap-icon://world"
         press=".onOpenDialog"
-        class="sapUiSmallMarginEnd"/>
+        class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"/>
 
       <!-- Step-5 -->
       <Button
