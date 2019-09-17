@@ -1,2 +1,0 @@
-// Copyright (c) 2009-2017 SAP SE, All Rights Reserved
-sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/core/UIComponent"],function(C,U){"use strict";return C.extend("sap.ushell.applications.PageComposer.controller.BaseController",{getRouter:function(){return U.getRouterFor(this);},getModel:function(n){return this.getView().getModel(n);},setModel:function(m,n){return this.getView().setModel(m,n);},getResourceBundle:function(){return this.getOwnerComponent().getModel("i18n").getResourceBundle();}});});

@@ -1,2 +1,0 @@
-//Copyright (c) 2009-2017 SAP SE, All Rights Reserved
-sap.ui.define([],function(){"use strict";var P={};P._closeDialog=function(){sap.ui.getCore().byId("pageOverview").close();};P.onCloseDialog=function(){this._selectedPageResolveHandler(null);this._closeDialog();};P.onItemPress=function(e){this._selectedPageResolveHandler(e.getParameter("listItem").getCells()[0].getText());this._closeDialog();};P._setResolveSelectedPagePromise=function(r){this._selectedPageResolveHandler=r;};return P;},false);
