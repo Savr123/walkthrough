@@ -1,0 +1,150 @@
+<mvc:View
+        controllerName="sap.ushell.applications.PageComposer.controller.PageDetailEdit"
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:form="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.f"
+        xmlns:mvc="sap.ui.core.mvc">
+    <f:DynamicPage
+            showFooter="true"
+            fitContent="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <VBox class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+                        <Title text="{/page/content/title}"/>
+                        <Label text="{/page/content/id}"/>
+                    </VBox>
+                </f:heading>
+                <f:actions>
+                    <Button
+                            text="{i18n>pageComposerShowCards}"
+                            type="Emphasized"
+                            press=".onShowCards"/>
+                    <Button
+                            text="{i18n>pageComposerPreview}"
+                            type="Transparent"
+                            press=".onShowPreview"/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <VBox fitContainer="true">
+                <Toolbar>
+                    <Title text="{i18n>pageComposerFormTitle}" level="H1"/>
+                </Toolbar>
+
+                <form:Form id="sapUshellPageComposerDetailForm"
+                           editable="true"
+                           class="sapUiLargeMarginBottom">
+                    <form:layout>
+                        <form:ResponsiveGridLayout
+                                labelSpanXL="12"
+                                labelSpanL="12"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="3"
+                                columnsL="3"
+                                columnsM="1"/>
+                    </form:layout>
+                    <form:formContainers>
+                        <form:FormContainer>
+                            <form:formElements>
+                                <form:FormElement label="{i18n>pageComposerPageTitle}">
+                                    <Input value="{/page/content/title}" required="true" id="pageDetailTitle"/>
+                                </form:FormElement>
+                                <form:FormElement label="{i18n>pageComposerPageId}">
+                                    <Input enabled="false" value="{/page/content/id}" required="true" id="pageDetailId"/>
+                                </form:FormElement>
+                                <form:FormElement label="{i18n>pageComposerAssignedRole}">
+                                    <Input value="" id="pageDetailRole"
+                                           showSuggestion="true"
+                                           showValueHelp="true"
+                                           valueHelpRequest="handleRoleAssignmentList">
+                                        <suggestionItems>
+                                            <core:Item text="{Name}" />
+                                        </suggestionItems>
+                                    </Input>
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+
+                        <form:FormContainer>
+                            <form:formElements>
+                                <form:FormElement label="{i18n>pageComposerDescription}">
+                                    <TextArea value="{/page/content/description}" rows="7" id="pageDetailDescription"/>
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+
+                        <form:FormContainer>
+                            <form:formElements>
+                                <form:FormElement label="{i18n>pageComposerCreatedBy}" >
+                                    <FormattedText htmlText="{path: '/page/content/createdBy', formatter: '.formatter.bold'}"
+                                                   id="pageDetailCreatedBy"
+                                    />
+                                </form:FormElement>
+                                <form:FormElement label="{i18n>pageComposerCreatedOn}" >
+                                    <FormattedText htmlText="{path: '/page/content/createdOn', formatter: '.formatter.boldDate'}"
+                                                   id="pageDetailCreatedOn"
+                                    />
+                                </form:FormElement>
+                                <form:FormElement label="{i18n>pageComposerChangedBy}">
+                                    <FormattedText htmlText="{path: '/page/content/modifiedBy', formatter: '.formatter.bold'}"
+                                                   id="pageDetailModifiedBy"
+                                    />
+                                </form:FormElement>
+                                <form:FormElement label="{i18n>pageComposerChangedOn}">
+                                    <FormattedText htmlText="{path: '/page/content/modifiedOn', formatter: '.formatter.boldDate'}"
+                                                   id="pageDetailModifiedOn"
+                                    />
+                                </form:FormElement>
+                            </form:formElements>
+                        </form:FormContainer>
+                    </form:formContainers>
+                </form:Form>
+
+                <Toolbar>
+                    <Title text="{i18n>pageComposerLayout}" level="H1"/>
+                </Toolbar>
+
+                <l:DynamicSideContent
+                        sideContentFallDown="BelowM"
+                        containerQuery="true"
+                        class="sapUiContentPadding">
+                    <l:mainContent>
+                        <Title level="H1" text="Main content"/>
+                    </l:mainContent>
+                    <l:sideContent>
+                        <Title level="H1" text="Side content"/>
+                    </l:sideContent>
+
+                    <l:layoutData>
+                        <FlexItemData minHeight="0"/>
+                    </l:layoutData>
+
+                </l:DynamicSideContent>
+
+                <layoutData>
+                    <FlexItemData minHeight="0"/>
+                </layoutData>
+            </VBox>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar id="pageDetailFooter">
+                <ToolbarSpacer/>
+                <Button text="{i18n>pageComposerSaveBtn}"
+                        type="Emphasized"
+                        press=".onSave"/>
+                <Button text="{i18n>pageComposerCancelBtn}"
+                        type="Transparent"
+                        press=".onCancel"/>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>>
+</mvc:View>

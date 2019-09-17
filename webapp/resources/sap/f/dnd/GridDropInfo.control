@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>dnd/GridDropInfo</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>Provides enhanced configuration for drop operations inside grid based controls.
+If drop position is "Between" and drop layout is "Horizontal", this drop configuration will provide  enhanced user experience. This includes the display of a target drop indicator which represents the exact position and size of the dragged control.
+&lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</documentation>
+    <since>1.68</since>
+    <developmentState state="experimental" since="1.68">This class is experimental. The API may change.</developmentState>
+    <baseType>sap.ui.core/dnd/DropInfo</baseType>
+</control>

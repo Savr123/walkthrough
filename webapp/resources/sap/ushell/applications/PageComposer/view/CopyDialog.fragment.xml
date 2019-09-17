@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core" >
+    <Dialog
+            id="pageDetailCopyDialog"
+            title="{i18n>pageDetailCopyTitle}"
+            afterClose="onAfterClose"
+            type="Message">
+        <content>
+            <VBox>
+                <Text text="{parts: ['i18n>pageDetailCopyText', '/page/content/id'], formatter: '.formatMessage'}" />
+                <Label text="{i18n>pageDetailCopyLabel}" labelFor="pageDetailCopyId" />
+                <Input value="{parts: ['i18n>pageDetailCopyNewId', '/page/content/id'], formatter: '.formatMessage'}"
+                       liveChange=".onCopyInputChange"
+                       required="true"
+                       id="pageDetailCopyId"/>
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button text="{i18n>pageDetailCopyConfirm}" press="onConfirm" />
+        </beginButton>
+
+        <endButton>
+            <Button text="{i18n>pageDetailCopyCancel}" press="onCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

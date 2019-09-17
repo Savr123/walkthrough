@@ -1,0 +1,9 @@
+<mvc:View
+        controllerName="sap.ushell.applications.PageComposer.controller.App"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <Shell appWidthLimited="false">
+        <App id="app-pagecomposer" />
+    </Shell>
+</mvc:View>

@@ -1,0 +1,43 @@
+<Dialog xmlns="sap.m" id="pageOverview" title="{i18n>pageOverview}" contentWidth="50%">
+    <Table items="{/pages}" itemPress="onItemPress">
+        <columns>
+            <Column>
+                <Text text="{i18n>pageId}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageName}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageDescription}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageCreatedBy}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageCreatedAt}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageChangedBy}"/>
+            </Column>
+            <Column>
+                <Text text="{i18n>pageChangedAt}"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem type="Active">
+                <cells>
+                    <Text text="{Id}"/>
+                    <Text text="{Name}"/>
+                    <Text text="{Description}"/>
+                    <Text text="{CreatedBy}"/>
+                    <Text text="{CreatedAt}"/>
+                    <Text text="{ChangedBy}"/>
+                    <Text text="{ChangedAt}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+    <endButton>
+        <Button text="Close" press="onCloseDialog"/>
+    </endButton>
+</Dialog>

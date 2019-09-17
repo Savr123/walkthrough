@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>charts/ClusterListItem</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>The cluster list item consists of a title and items.</documentation>
+    <baseType>sap.m/ListItemBase</baseType>
+    <properties>
+        <property name="title" type="sap.ui.core/string" group="Misc">
+            <documentation>Title</documentation>
+        </property>
+        <property name="items" type="sap.ui.core/object" group="Data">
+            <documentation>Items</documentation>
+        </property>
+    </properties>
+</control>

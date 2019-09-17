@@ -1,0 +1,36 @@
+<Dialog
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        contentWidth="40rem"
+        contentHeight="70vh"
+        id="sapUshellTileSelector"
+        title="{/groupTitle}"
+        afterClose="._onAfterClose">
+    <SearchField
+            liveChange="._onSearch"
+            width="100%"
+            value="{/searchText}"
+    />
+    <List
+            id="sapUshellTileSelector-list"
+            includeItemInSelection="true"
+            mode="MultiSelect"
+            items="{/catalogTiles}" >
+        <StandardListItem
+                type="Active"
+                title="{title}"
+                iconDensityAware="false"
+                icon="{icon}"
+                info="{info}">
+            <customData>
+                <core:CustomData key="tileId" value="{id}" writeToDom="false" />
+            </customData>
+        </StandardListItem>
+    </List>
+    <beginButton>
+        <Button id="sapUshellTileSelector-okButton" text="{i18n>okDialogBtn}" press="._closeDialog" />
+    </beginButton>
+    <endButton>
+        <Button id = "sapUshellTileSelector-cancelButton" text="{i18n>cancelDialogBtn}" press="._closeDialog" />
+    </endButton>
+</Dialog>

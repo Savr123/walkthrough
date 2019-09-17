@@ -6,30 +6,49 @@
 
   <!-- Step-11 -->
   <Shell>
-    <App>
-      <pages>
+    <App class="myAppDemoWT" id="app">
+      <!-- <pages>
         <Page
           title="{i18n>homePageTitle}">
+          <headerContent>
+            <Button
+              icon="sap-icon://hello-world"
+              press=".onOpenDialog"/>
+          </headerContent>
           <content>
+            Step-15
+            Nested_Views
+            <mvc:XMLView viewName="walkthrough.view.HelloPanel"/>
+						<mvc:XMLView viewName="walkthrough.view.InvoiceList"/>
+
+            deleted
             <Panel
+              class="sapUiResponsoveMargin"
+              width="auto"
               headerText="{i18n>helloPanelTitle}">
               <content>
-                <!-- Step-5 -->
+
+                Step-5
                 <Button
                   text = "{i18n>showHelloButtonText}"
-                  press = ".onShowHello"/>
+                  press = ".onShowHello"
+                  class="sapUiSmallMarginEnd myCustomButton "/>
 
-                  <!-- Step-7 -->
+
+                Step-7
                 <Input
                   value="{/recipient/name}"
                   description="Hello {/recipient/name}"
                   valueLiveUpdate="true"
                   width="60%"/>
+                <FormattedText
+                  htmlText="Hello {/recipient/name}"
+                  class="sapUiSmallMargin sapThemeHighLight-asColor myCustomText"/>
               </content>
             </Panel>
           </content>
         </Page>
-      </pages>
+      </pages> -->
     </App>
   </Shell>
 

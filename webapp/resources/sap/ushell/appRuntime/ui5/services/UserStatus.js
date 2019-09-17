@@ -1,0 +1,2 @@
+// Copyright (c) 2009-2017 SAP SE, All Rights Reserved
+sap.ui.define(["sap/ui/core/service/ServiceFactoryRegistry","sap/ui/core/service/ServiceFactory","sap/ui/core/service/Service","../../../ui5service/_UserStatus/userstatus.class.factory"],function(S,a,b,d){"use strict";var s=d({serviceRegistry:S,serviceFactory:a,service:b});var N=s.extend("sap.ushell.appRuntime.services.UserStatus",{});return N;},true);

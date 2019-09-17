@@ -1,0 +1,116 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          height="100%"
+          controllerName="sap.ushell.applications.PageComposer.controller.PageOverview">
+
+    <Page>
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Title text="{i18n>pageOverviewTitle}" class="sapUiMediumMarginBegin" />
+                </contentLeft>
+            </Bar>
+        </customHeader>
+        <content>
+            <Table
+                class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom sapUiForceWidthAuto"
+                id="sapUshellPagesTable"
+                items="{/pages}"
+                itemPress=".onItemPress"
+                selectionChange=".onSelectionChange"
+                mode="MultiSelect">
+                <headerToolbar>
+                    <OverflowToolbar design="Solid">
+                        <SegmentedButton selectedKey="allPages">
+                            <items>
+                                <SegmentedButtonItem text="{i18n>pageOverviewAllPages}" key="allPages" />
+                                <SegmentedButtonItem text="{i18n>pageOverviewRecentPages}" key="recentPages" />
+                            </items>
+                        </SegmentedButton>
+                        <ToolbarSpacer/>
+                        <SearchField
+                            id="maintainPagesSearchField"
+                            showRefreshButton="false"
+                            tooltip="{i18n>search}"
+                            search=".onSearch"
+                            width="auto">
+                        </SearchField>
+                        <Button
+                            id="deleteButton"
+                            text="{i18n>pageOverviewDeleteBtn}"
+                            enabled="{buttonStates>/isDeleteEnabled}"
+                            press=".onDelete"/>
+                        <Button
+                            id="copyButton"
+                            text="{i18n>pageOverviewCopyBtn}"
+                            enabled="{buttonStates>/isCopyEnabled}"
+                            press=".onCopy"/>
+                        <Button
+                            id="addButton"
+                            icon="sap-icon://add"
+                            press=".onAdd"/>
+                        <Button
+                            id="settingsButton"
+                            icon="sap-icon://action-settings"
+                            press=".onSettings"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>pageId} / {i18n>pageTitle}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>pageDescription}"/>
+                    </Column>
+                    <!-- Column>
+                        <Text text="{i18n>businessRoleId} / {i18n>businessRole}"/>
+                    </Column -->
+                    <Column>
+                        <Text text="{i18n>pageCreatedBy}" class="sapUiSmallMarginBegin"/>
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="{i18n>pageCreatedOn}" class="sapUiSmallMarginEnd"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>pageChangedBy}" class="sapUiSmallMarginBegin"/>
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="{i18n>pageChangedOn}" class="sapUiSmallMarginEnd"/>
+                    </Column>
+                    <Column hAlign="End" width="5%">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem  type="Navigation">
+                        <cells>
+                            <ObjectIdentifier title="{content/id}" text="{content/title}"/>
+                        </cells>
+                        <cells>
+                            <Text text="{content/description}"/>
+                        </cells>
+                        <!-- cells>
+                            <ObjectIdentifier title="{BusinessRoleId}" text="{BusinessRole}"/>
+                        </cells -->
+                        <cells>
+                            <Text text="{content/createdBy}" class="sapUiSmallMarginBegin"/>
+                        </cells>
+                        <cells>
+                            <Text text="{path: 'content/createdOn', formatter: '.formatter.date'}" class="sapUiSmallMarginEnd"/>
+                        </cells>
+                        <cells>
+                            <Text text="{content/modifiedBy}" class="sapUiSmallMarginBegin"/>
+                        </cells>
+                        <cells>
+                            <Text text="{path: 'content/modifiedOn', formatter: '.formatter.date'}" class="sapUiSmallMarginEnd"/>
+                        </cells>
+                        <cells>
+                            <Button press=".onEdit" icon="sap-icon://edit" type="Transparent"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+
+    </Page>
+
+</mvc:View>
